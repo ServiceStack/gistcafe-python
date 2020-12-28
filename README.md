@@ -79,6 +79,12 @@ Which outputs:
 | psf-salt     | SaltStack |         87 |      50 |
 ```
 
+Whilst `inspect.vars()` lets you view variables in [gist.cafe](https://gist.cafe) viewer:
+
+![](https://raw.githubusercontent.com/ServiceStack/gist-cafe/main/docs/images/vars-orgRepos-python.png)
+
+View and execute Python gists with [gist.cafe](https://gist.cafe), e.g: [gist.cafe/2b11948d23e051396d62bb7853aad674](https://gist.cafe/2b11948d23e051396d62bb7853aad674).
+
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker](https://github.com/ServiceStack/gistcafe-pyhon/issues).
