@@ -7,8 +7,11 @@ Simple usage example:
 ```python
 import requests
 import operator
+
 from dataclasses import dataclass, field
 from dataclasses_json import config, dataclass_json, Undefined
+from typing import Optional
+from gistcafe import inspect
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
@@ -25,11 +28,11 @@ response = requests.get(f'https://api.github.com/orgs/{orgName}/repos')
 orgRepos = GithubRepo.schema().loads(response.text, many=True)
 orgRepos.sort(key=operator.attrgetter('watchers'), reverse=True)
 
-Inspect.printdump(orgRepos[0:3])
+inspect.printdump(orgRepos[0:3])
 print('')
-Inspect.printdumptable(orgRepos[0:10],headers=['name','lang','watchers','forks'])
+inspect.printdumptable(orgRepos[0:10],headers=['name','lang','watchers','forks'])
 
-Inspect.vars({ 'orgRepos': orgRepos })
+inspect.vars({ 'orgRepos': orgRepos })
 ```
 
 Which outputs:
@@ -41,7 +44,7 @@ Which outputs:
         description: Optional static typing for Python 3 and 2 (PEP 484),
         homepage: http://www.mypy-lang.org/,
         lang: Python,
-        watchers: 9632,
+        watchers: 9637,
         forks: 1564
     },
     {
@@ -50,23 +53,23 @@ Which outputs:
         homepage: https://www.python.org/dev/peps/,
         lang: Python,
         watchers: 2458,
-        forks: 920
+        forks: 921
     },
     {
         name: typeshed,
         description: Collection of library stubs for Python, with static types,
         homepage: ,
         lang: Python,
-        watchers: 1941,
+        watchers: 1942,
         forks: 972
     }
 ]
 
 | name         | lang      |   watchers |   forks |
 |--------------|-----------|------------|---------|
-| mypy         | Python    |       9632 |    1564 |
-| peps         | Python    |       2458 |     920 |
-| typeshed     | Python    |       1941 |     972 |
+| mypy         | Python    |       9637 |    1564 |
+| peps         | Python    |       2458 |     921 |
+| typeshed     | Python    |       1942 |     972 |
 | pythondotorg | Python    |       1038 |     432 |
 | asyncio      |           |        945 |     178 |
 | typing       | Python    |        840 |     130 |

@@ -21,10 +21,10 @@ setuptools.setup(
     keywords='gistcafe,dump,prettyprint',
     install_requires=dependencies,
     packages=setuptools.find_packages(),
-    tests_require=['pytest','dataclasses-json>=0.5.2','tabulate>=0.8.7','requests>=2.25.1']
+    tests_require=['pytest','dataclasses-json>=0.5.2','tabulate>=0.8.7','requests>=2.25.1'],
     classifiers=[
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD-3-Clause',
+        'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         "Operating System :: OS Independent",
         'Programming Language :: Python :: 3.5',
