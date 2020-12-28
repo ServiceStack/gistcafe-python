@@ -10,7 +10,7 @@ dependencies = ['dataclasses-json>=0.5.2',
 
 setuptools.setup(
     name="gistcafe",
-    version="0.0.2",
+    version="0.0.3",
     author="ServiceStack, Inc.",
     author_email="team@servicestack.net",
     description="gist.cafe utils for Python",
