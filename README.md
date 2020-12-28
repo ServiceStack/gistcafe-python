@@ -28,8 +28,10 @@ response = requests.get(f'https://api.github.com/orgs/{orgName}/repos')
 orgRepos = GithubRepo.schema().loads(response.text, many=True)
 orgRepos.sort(key=operator.attrgetter('watchers'), reverse=True)
 
+print(f'Top 3 {orgName} Repos:')
 inspect.printdump(orgRepos[0:3])
-print('')
+
+print(f'\nTop 10 {orgName} Repos:')
 inspect.printdumptable(orgRepos[0:10],headers=['name','lang','watchers','forks'])
 
 inspect.vars({ 'orgRepos': orgRepos })
@@ -38,13 +40,14 @@ inspect.vars({ 'orgRepos': orgRepos })
 Which outputs:
 
 ```
+Top 3 python Repos:
 [
     {
         name: mypy,
         description: Optional static typing for Python 3 and 2 (PEP 484),
         homepage: http://www.mypy-lang.org/,
         lang: Python,
-        watchers: 9637,
+        watchers: 9638,
         forks: 1564
     },
     {
@@ -52,7 +55,7 @@ Which outputs:
         description: Python Enhancement Proposals,
         homepage: https://www.python.org/dev/peps/,
         lang: Python,
-        watchers: 2458,
+        watchers: 2459,
         forks: 921
     },
     {
@@ -65,10 +68,12 @@ Which outputs:
     }
 ]
 
+Top 10 python Repos:
++--------------+-----------+------------+---------+
 | name         | lang      |   watchers |   forks |
-|--------------|-----------|------------|---------|
-| mypy         | Python    |       9637 |    1564 |
-| peps         | Python    |       2458 |     921 |
+|--------------+-----------+------------+---------|
+| mypy         | Python    |       9638 |    1564 |
+| peps         | Python    |       2459 |     921 |
 | typeshed     | Python    |       1942 |     972 |
 | pythondotorg | Python    |       1038 |     432 |
 | asyncio      |           |        945 |     178 |
@@ -77,6 +82,7 @@ Which outputs:
 | typed_ast    | C         |        171 |      43 |
 | planet       | Python    |        100 |     145 |
 | psf-salt     | SaltStack |         87 |      50 |
++--------------+-----------+------------+---------+
 ```
 
 Whilst `inspect.vars()` lets you view variables in [gist.cafe](https://gist.cafe) viewer:

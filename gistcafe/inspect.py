@@ -80,7 +80,7 @@ def dumptable(objs, headers=None):
             row.append(obj[k])
         rows.append(row)
     
-    return tabulate(rows, headers=headers, tablefmt="github")
+    return tabulate(rows, headers=headers, tablefmt="psql")
 
 def printdumptable(obj, headers=None):
     print(dumptable(obj,headers))

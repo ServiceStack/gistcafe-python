@@ -28,8 +28,10 @@ def test_does_dump():
     orgRepos = GithubRepo.schema().loads(response.text, many=True)
     orgRepos.sort(key=operator.attrgetter('watchers'), reverse=True)
 
+    print(f'Top 3 {orgName} Repos:')
     inspect.printdump(orgRepos[0:3])
-    print('')
+
+    print(f'\nTop 10 {orgName} Repos:')
     inspect.printdumptable(orgRepos[0:10],headers=['name','lang','watchers','forks'])
 
     inspect.vars({ 'orgRepos': orgRepos })
